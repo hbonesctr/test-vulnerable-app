@@ -1,0 +1,18 @@
+{
+  "name": "vulnerable-test-app",
+  "version": "1.0.0",
+  "description": "Test application with intentional security vulnerabilities",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No tests\" && exit 0"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "lodash": "4.17.19",
+    "mongoose": "5.12.3",
+    "jsonwebtoken": "8.5.1"
+  },
+  "author": "Security Testing",
+  "license": "MIT"
+}
