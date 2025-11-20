@@ -1,6 +1,6 @@
 # CodeQL Analysis Workflow
 # STIG ID: APSC-DV-002560 - Static Analysis Execution
-# Version: 1.2 (Corrected)
+# Version: 1.3 (Fixed - Added dependency installation)
 
 name: "CodeQL"
 
@@ -25,6 +25,18 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm install --ignore-scripts
+        fi
+      continue-on-error: true
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
